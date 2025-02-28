@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KlackPro - تأجير الرافعات الشوكية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #2A4365;
+            --secondary-color: #38A169;
+            --accent-color: #DD6B20;
+            --dark-color: #1A202C;
+            --light-color: #F7FAFC;
+            --text-color: #2D3748;
+        }
+
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(42, 67, 101, 0.9), rgba(42, 67, 101, 0.9)),
+                        url('forklift-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        /* Registration Forms */
+        .registration-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-toggle {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn.active {
+            border-bottom: 3px solid var(--secondary-color);
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: filter 0.3s;
+        }
+
+        button:hover {
+            filter: brightness(110%);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crane"></i> KlackPro
+            </div>
+            <div class="nav-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#services">الخدمات</a>
+                <a href="#register">التسجيل</a>
+                <a href="#contact">اتصل بنا</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>أسرع طريقة لتأجير الرافعات الشوكية</h1>
+            <p>احصل على أفضل الخدمات بأعلى معايير الجودة</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-grid">
+            <!-- Service Card 1 -->
+            <div class="service-card">
+                <img src="shangli-3ton.jpg" alt="SHANGLI 3TON" class="service-image">
+                <h3>SHANGLI 3TON</h3>
+                <ul>
+                    <li>القدرة: 3 طن</li>
+                    <li>السعر: 50,000 دج/ساعة</li>
+                    <li>السائق: أيمن - 0541980801</li>
+                </ul>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="service-card">
+                <img src="om-fiat-6ton.jpg" alt="OM FIAT 6TON" class="service-image">
+                <h3>OM FIAT 6TON</h3>
+                <ul>
+                    <li>القدرة: 6 طن</li>
+                    <li>السعر: 75,000 دج/ساعة</li>
+                    <li>السائق: عبدالقادر - 0771453454</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration-section" id="register">
+        <div class="form-toggle">
+            <div class="toggle-btn active" onclick="showForm('user')">عميل</div>
+            <div class="toggle-btn" onclick="showForm('driver')">سائق</div>
+        </div>
+
+        <!-- User Registration Form -->
+        <form id="userForm" class="registration-form active">
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>رقم الهاتف</label>
+                <input type="tel" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label>موقع العمل</label>
+                <input type="text" required>
+            </div>
+
+            <button type="submit">تسجيل حساب جديد</button>
+        </form>
+
+        <!-- Driver Registration Form -->
+        <form id="driverForm" class="registration-form">
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" required>
+            </div>
+
+            <div class="form-group">
+                <label>نوع الرافعة</label>
+                <select required>
+                    <option value="SHANGLI 3TON">SHANGLI 3TON</option>
+                    <option value="OM FIAT 6TON">OM FIAT 6TON</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>رقم الرخصة</label>
+                <input type="text" required>
+            </div>
+
+            <button type="submit">تسجيل كسائق</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>اتصل بنا</h3>
+                <p>الهاتف: 0541980801</p>
+                <p>البريد الإلكتروني: info@klackpro.dz</p>
+            </div>
+            <div class="footer-section">
+                <h3>الموقع</h3>
+                <p>الجزائر، ولاية الجزائر</p>
+                <p>حي حمادي، شارع الصناعات الثقيلة</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 KlackPro. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form Toggle Functionality
+        function showForm(formType) {
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.registration-form').forEach(form => form.style.display = 'none');
+            
+            document.querySelector(`#${formType}Form`).style.display = 'block';
+            event.target.classList.add('active');
+        }
+
+        // SMS Simulation
+        function sendRequest() {
+            const phone = document.getElementById('phone').value;
+            const message = `طلب جديد من ${phone}`;
+            window.location.href = `sms:0541980801?body=${encodeURIComponent(message)}`;
+        }
+
+        // Form Submission
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('تم تسجيل البيانات بنجاح!');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
